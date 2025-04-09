@@ -1,0 +1,19 @@
+server:
+  port: 8001
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+
+org.example:
+  strategy:
+    name: first
+    shutdown-timeout: 5000
+  leader:
+    server: http://localhost:8000
