@@ -1,0 +1,12 @@
+<main class="wrapper">
+  <nav class="nav">
+    <div *ngFor="let item of menuItems" class="menu-item">
+      <div class='menu'>
+        <a [routerLink]="item.link">{{ item.title }}</a>
+      </div>
+    </div>
+  </nav>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</main>

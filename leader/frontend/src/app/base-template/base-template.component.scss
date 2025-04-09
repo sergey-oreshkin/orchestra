@@ -1,0 +1,47 @@
+.wrapper {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid green;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  font-size: 1.5em;
+}
+
+.menu:hover {
+  background-color: grey;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 75%;
+  flex: 1;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  flex: 1;
+  max-width: 25%;
+}
+
+.active {
+  background-color: #aaa;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+}

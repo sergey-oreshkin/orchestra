@@ -1,0 +1,24 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+endpoints:
+  health: /actuator/health
+  launch: /launch
+  status: /status
+  params: /params
+
+
+workers:
+  first:
+    name: first
+    server: http://localhost:8001
+  second:
+    name: second
+    server: http://localhost:8002

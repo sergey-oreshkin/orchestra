@@ -1,0 +1,15 @@
+<h1>Стратегии</h1>
+<table>
+  <tr>
+    <th>Стратегия</th>
+    <th>Статус</th>
+    <th>Успешно завершен</th>
+  </tr>
+  <tr *ngFor="let startegy of strategies">
+    <td>{{ startegy.name + "-" + startegy.id }}</td>
+    <td
+      [ngClass]="{ green: startegy.isRunning, red: !startegy.isRunning }"
+    ></td>
+    <td>{{ startegy.isSuccess }}</td>
+  </tr>
+</table>

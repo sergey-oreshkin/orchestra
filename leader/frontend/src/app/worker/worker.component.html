@@ -1,0 +1,11 @@
+<h1>Воркеры</h1>
+<table>
+  <tr>
+    <th>Воркер</th>
+    <th>Статус</th>
+  </tr>
+  <tr *ngFor="let worker of workers">
+    <td>{{ worker.name }}</td>
+    <td [ngClass]="{ green: worker.isRunning, red: !worker.isRunning }"></td>
+  </tr>
+</table>

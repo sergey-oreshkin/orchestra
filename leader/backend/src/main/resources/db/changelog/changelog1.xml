@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create_table_worker" author="me">
+        <sql>
+            CREATE TABLE worker
+            (
+            id bigserial primary key,
+            name varchar not null unique,
+            is_ready boolean not null
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="create_table_worker_param" author="me">
+        <sql>
+            CREATE TABLE worker_param
+            (
+            id bigserial primary key,
+            name varchar not null,
+            optional boolean not null,
+            worker_id bigint not null references worker(id)
+            )
+        </sql>
+    </changeSet>
+    <changeSet id="create_table_strategy" author="serg">
+        <sql>
+            CREATE TABLE strategy
+            (
+            id bigserial primary key,
+            name varchar not null,
+            is_running boolean,
+            is_success boolean,
+            last_message varchar,
+            last_updated timestamp,
+            worker_id bigint not null references worker(id)
+            )
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

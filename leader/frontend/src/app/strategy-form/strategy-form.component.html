@@ -1,0 +1,27 @@
+<h1>Запуск стратегии</h1>
+<div class="wrapper">
+  <form (ngSubmit)="launch()" [formGroup]="form">
+    <div
+      [ngClass]="{
+        hide: !result.message,
+        green: result.success,
+        red: !result.success,
+        message: true
+      }"
+    >
+      {{ result.message }}
+    </div>
+    <select formControlName="name" (change)="change()">
+      <option *ngFor="let param of params" [ngValue]="param.name">
+        {{ param.name }}
+      </option>
+    </select>
+    <div class="form-row" *ngFor="let param of current">
+      <label>{{ param }}</label>
+      <input type="text" formControlName="{{ param }}" value="" />
+    </div>
+    <div class="form-row">
+      <button type="submit">Запуск</button>
+    </div>
+  </form>
+</div>

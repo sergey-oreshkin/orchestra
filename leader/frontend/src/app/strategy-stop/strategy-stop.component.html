@@ -1,0 +1,26 @@
+<h1>Остановка стратегии</h1>
+<div class="wrapper">
+  <form (ngSubmit)="stop()" [formGroup]="form">
+    <div
+      [ngClass]="{
+        hide: !result.message,
+        green: result.success,
+        red: !result.success,
+        message: true
+      }"
+    >
+      {{ result.message }}
+    </div>
+    <select formControlName="name" (change)="change()">
+      <option
+        *ngFor="let startegy of strategies"
+        [ngValue]="startegy.name + '-' + startegy.id"
+      >
+        {{ startegy.name + "-" + startegy.id }}
+      </option>
+    </select>
+    <div class="form-row">
+      <button type="submit">Остановить</button>
+    </div>
+  </form>
+</div>
